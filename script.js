@@ -2,7 +2,7 @@
    PERSONALIZATION CONFIGURATION
    ========================================== */
 // Leave GIRLFRIEND_NAME as empty string "" if you want generic text
-const GIRLFRIEND_NAME = "";
+const GIRLFRIEND_NAME = "Kalpalatha";
 const DATE = "21 August 2026";
 const DEFAULT_TIME = "Evening 🌅";
 const DEFAULT_ACTIVITY = "Surprise 🎁";
