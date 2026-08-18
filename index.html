@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A special date invitation just for you 💕" />
+  <title>A Little Question For You 💕</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Pacifico&display=swap" rel="stylesheet" />
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Background Hearts Container -->
+  <div class="bg-hearts-container" id="bgHeartsContainer" aria-hidden="true"></div>
+
+  <!-- Main Container -->
+  <main class="container">
+    <article class="card main-card">
+      
+      <!-- Top Decorative Sticker -->
+      <div class="sticker-container">
+        <span class="sticker bounce-anim" role="img" aria-label="Teddy bear and pink hearts">🧸💗</span>
+      </div>
+
+      <!-- Subtitle & Main Heading -->
+      <p class="subtitle" id="personalizedGreeting">A LITTLE QUESTION FOR YOU</p>
+      <h1 class="main-title">
+        Wanna go on a <span class="handwritten">date?</span>
+      </h1>
+
+      <!-- Intro Subtext -->
+      <p class="intro-text">
+        I have a tiny plan...<br />
+        but I need one very important person's approval first. 😌
+      </p>
+
+      <!-- Message Envelope Card -->
+      <div class="message-card">
+        <div class="envelope-icon" role="img" aria-label="Envelope with heart">💌</div>
+        <p class="message-text" id="personalizedMessage">
+          Dear you,<br /><br />
+          How about we escape our usual routine for a little while and spend some time together? 🥰
+        </p>
+      </div>
+
+      <!-- Form Section -->
+      <form id="dateForm" aria-label="Date Selection Form" onsubmit="return false;">
+        
+        <!-- Date Selection -->
+        <section class="form-section">
+          <h2 class="section-title">Pick our day 🌸</h2>
+          <fieldset class="options-grid date-grid">
+            <legend class="sr-only">Choose a date</legend>
+            
+            <label class="option-card date-card">
+              <input type="radio" name="date" value="21 August 2026" checked />
+              <div class="card-content">
+                <span class="day">FRI</span>
+                <span class="number">21</span>
+                <span class="month">AUG</span>
+              </div>
+            </label>
+
+            <label class="option-card date-card">
+              <input type="radio" name="date" value="22 August 2026" />
+              <div class="card-content">
+                <span class="day">SAT</span>
+                <span class="number">22</span>
+                <span class="month">AUG</span>
+              </div>
+            </label>
+
+            <label class="option-card date-card">
+              <input type="radio" name="date" value="23 August 2026" />
+              <div class="card-content">
+                <span class="day">SUN</span>
+                <span class="number">23</span>
+                <span class="month">AUG</span>
+              </div>
+            </label>
+          </fieldset>
+        </section>
+
+        <!-- Time Selection -->
+        <section class="form-section">
+          <h2 class="section-title">What time sounds good? 🕐</h2>
+          <fieldset class="options-grid time-grid">
+            <legend class="sr-only">Choose a time of day</legend>
+
+            <label class="option-card pill-card">
+              <input type="radio" name="time" value="Morning ☀️" />
+              <div class="card-content">☀️ Morning</div>
+            </label>
+
+            <label class="option-card pill-card">
+              <input type="radio" name="time" value="Evening 🌅" checked />
+              <div class="card-content">🌅 Evening</div>
+            </label>
+
+            <label class="option-card pill-card">
+              <input type="radio" name="time" value="Night 🌙" />
+              <div class="card-content">🌙 Night</div>
+            </label>
+          </fieldset>
+        </section>
+
+        <!-- Activity Selection -->
+        <section class="form-section">
+          <h2 class="section-title">What should we do? 🎀</h2>
+          <fieldset class="options-grid activity-grid">
+            <legend class="sr-only">Choose an activity</legend>
+
+            <label class="option-card pill-card">
+              <input type="radio" name="activity" value="Food 🍕" />
+              <div class="card-content">🍕 Food</div>
+            </label>
+
+            <label class="option-card pill-card">
+              <input type="radio" name="activity" value="Long Drive 🚗" />
+              <div class="card-content">🚗 Long Drive</div>
+            </label>
+
+            <label class="option-card pill-card">
+              <input type="radio" name="activity" value="Coffee ☕" />
+              <div class="card-content">☕ Coffee</div>
+            </label>
+
+            <label class="option-card pill-card">
+              <input type="radio" name="activity" value="Surprise 🎁" checked />
+              <div class="card-content">🎁 Surprise</div>
+            </label>
+          </fieldset>
+        </section>
+
+        <!-- Submit Button -->
+        <div class="submit-container">
+          <button type="submit" id="submitBtn" class="btn-primary">
+            <span>Okay, let's go 💗</span>
+            <span class="arrow">→</span>
+          </button>
+          <p class="footnote">No pressure... just one cute date. 🥺👉👈</p>
+        </div>
+
+      </form>
+    </article>
+  </main>
+
+  <!-- Success Modal Overlay -->
+  <div class="modal-overlay" id="successModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-content card">
+      <div class="modal-stickers">
+        <span class="sticker bounce-anim" role="img" aria-label="Holding back tears and hearts">🥹💗</span>
+      </div>
+      
+      <div class="sparkles" aria-hidden="true">✨ 💕 🌸 💖 ✨</div>
+
+      <h2 id="modalTitle" class="modal-title">It's a date! 🥰</h2>
+      
+      <p class="modal-message">
+        Yesss! 💗 I knew you had good taste. 😌
+      </p>
+
+      <div class="summary-box">
+        <div class="summary-item">
+          <span class="summary-icon">📅</span>
+          <span id="summaryDate" class="summary-text">21 August 2026</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-icon">🕐</span>
+          <span id="summaryTime" class="summary-text">Evening</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-icon">🎀</span>
+          <span id="summaryActivity" class="summary-text">Surprise</span>
+        </div>
+      </div>
+
+      <p class="modal-subtext">Now you officially have plans with me. 😌💗</p>
+
+      <button type="button" id="closeModalBtn" class="btn-primary">
+        Can't wait 💕
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
